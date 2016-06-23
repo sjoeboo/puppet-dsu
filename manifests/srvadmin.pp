@@ -1,3 +1,4 @@
-class dsu::srvadmin () {
-  
+class dsu::srvadmin {
+
+  include ::dsu::srvadmin::install
 }
