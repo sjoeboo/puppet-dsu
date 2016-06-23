@@ -12,6 +12,11 @@ class dsu (
     #Of course, only DO anything if we're a Dell system!
     if $::manufacturer =~ /^Dell/ {
       include ::dsu::repo
+      include ::dsu::install
+
+      if $srvadmin {
+        include ::dsu::srvadmin
+      }
     }
 
 }

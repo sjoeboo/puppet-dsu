@@ -1,0 +1,3 @@
+class dsu::srvadmin::install () {
+  
+}
