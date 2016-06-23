@@ -9,6 +9,9 @@ class dsu (
   $srvadmin_package = $::dsu::params::srvadmin_package,
   $srvadmin_version =  $::dsu::params::srvadmin_version,
   ) inherits dsu::params {
+    #Of course, only DO anything if we're a Dell system!
+    if $::manufacturer =~ /^Dell/ {
+      include ::dsu::repo
+    }
 
-    include ::dsu::repo
 }
