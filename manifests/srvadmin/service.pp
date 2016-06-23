@@ -3,7 +3,7 @@ class dsu::srvadmin::service (
   $enable = $::dsu::srvadmin_services_enable,
   $ensure = $::dsu::srvadmin_services_ensure,
   ) {
-    $services.each do |String $srv| {
+    $services.each |String $srv| {
       service { $srv:
         ensure => $ensure,
         enable => $enable,
