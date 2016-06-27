@@ -1,5 +1,5 @@
 class dsu (
-  $mange_repo               = $::dsu::params::manage_repo,
+  $manage_repo              = $::dsu::params::manage_repo,
   $repo                     = $::dsu::params::repo,
   $repo_name                = $::dsu::params::repo_name,
   $repo_gpgkey              = $::dsu::params::repo_gpgkey,
