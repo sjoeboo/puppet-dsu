@@ -14,71 +14,51 @@
 
 ## Description
 
-Start with a one- or two-sentence summary of what the module does and/or what
-problem it solves. This is your 30-second elevator pitch for your module.
-Consider including OS/Puppet version it works with.
-
-You can give more descriptive information in a second paragraph. This paragraph
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?" If your module has a range of functionality (installation, configuration,
-management, etc.), this is the time to mention it.
+Sets up Dell System Update (repository and installs the dsu tool), optionally installs Openmanager (srvadmin) packages and services
 
 ## Setup
 
 ### What dsu affects **OPTIONAL**
 
-If it's obvious what your module touches, you can skip this section. For
-example, folks can probably figure out that your mysql_instance module affects
-their MySQL instances.
-
-If there's more that they should know about, though, this is the place to mention:
-
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you might want to include an additional "Upgrading" section
-here.
+* (Optional) DSU repos (os depentant and os independant)
+* dsu
+* (optional) Openmanage (srvadmin) packages and services.
 
 ### Beginning with dsu
 
-The very basic steps needed for a user to get the module up and running. This
-can include setup steps, if necessary, or it can be an example of the most
-basic use of the module.
+`puppet module install sjoeboo-dsu`
+
 
 ## Usage
 
-This section is where you describe how to customize, configure, and do the
-fancy stuff with your module here. It's especially helpful if you include usage
-examples and code samples for doing things with your module.
+`include ::dsu`
 
 ## Reference
 
-Here, include a complete list of your module's classes, types, providers,
-facts, along with the parameters for each. Users refer to this section (thus
-the name "Reference") to find specific details; most users don't read it per
-se.
+`manage_repo`: *Boolean*, should this module manage the (yum) repos for the dsu installation. *Default*: **true**
+
+`repo`: *String*, Base path to repo to install *Default* **'http://linux.dell.com/repo/hardware/dsu/'**
+
+`repo_name`: *String*, Name of repo to install (appends os-(in)dependentå) *Default* **'dell-system-update'**
+
+`repo_gpgkey`: *String*, *Default* Path/url to gpgkey to use **"${repo}/public.key"**
+
+`package_name`: *String*, Name of dsu package to install *Default* **'dell-system-update'**
+
+`package_version`: *String*, Version string of dsu package to install (installed, lastest, $version, absent, etc)*Default* **'installed'**
+
+`srvadmin`: *Boolean*, Toggle installation of Openmanage(srvadmin)*Default* **true**
+
+`srvadmin_package`: *String*, Name of srvadmin package to install *Default* **'srvadmin-all'**
+
+`srvadmin_version`: *String*, Version string of srvadmin package to install (installed, lastest, $version, absent, etc) *Default* **'installed'**
+
+`srvadmin_services`:  *Array*, List of srdadmin services to manage. *Default* **['dataeng','dsm_om_connsvc','dsm_om_shrsvc','instsvcdrv']**
+
+`srvadmin_services_enable`: *Boolean*, Toggle enabling srvadmin services *Default* **true**
+
+`srvadmin_services_ensure`: *String* State of srvadmin services to ensure *Default* **'running'**
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc. If there
-are Known Issues, you might want to include them under their own heading here.
-
-## Development
-
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc. **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You can also add any additional sections you feel
-are necessary or important to include here. Please use the `## ` header.
-# puppet-dsu
+Currently supports RHEL based systems (CentOS,etc), v6 + 7 only.
