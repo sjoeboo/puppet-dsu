@@ -2,7 +2,7 @@
   "name": "sjoeboo-dsu",
   "version": "0.1.0",
   "author": "sjoeboo",
-  "summary": 'Install/manage Dell System Update utility + OpenManage',
+  "summary": "Install/manage Dell System Update utility + OpenManage",
   "license": "Apache-2.0",
   "source": "https://github.com/sjoeboo/puppet-dsu",
   "project_page": "https://github.com/sjoeboo/puppet-dsu",
