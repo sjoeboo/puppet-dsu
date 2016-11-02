@@ -1,5 +1,5 @@
 class dsu::repo (
-  $manage_repo = $::dsu::mange_repo,
+  $manage_repo = $::dsu::manage_repo,
   $repo        = $::dsu::repo,
   $repo_name   = $::dsu::repo_name,
   $repo_gpgkey = $::dsu::repo_gpgkey,
