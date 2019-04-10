@@ -8,7 +8,7 @@ class dsu::params {
   $srvadmin = true
   $srvadmin_package = 'srvadmin-all'
   $srvadmin_version = 'installed'
-  $srvadmin_services = ['dataeng','dsm_om_connsvc','dsm_om_shrsvc','instsvcdrv']
+  $srvadmin_services = ['dsm_sa_eventmgrd','dsm_sa_datamgrd','dsm_sa_snmpd','dsm_om_connsvc','dsm_om_shrsvc','instsvcdrv']
   $srvadmin_services_enable = true
   $srvadmin_services_ensure = 'running'
 }
