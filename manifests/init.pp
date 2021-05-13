@@ -13,12 +13,14 @@ class dsu (
   $srvadmin_services_ensure = $::dsu::params::srvadmin_services_ensure,
   ) inherits dsu::params {
     #Of course, only DO anything if we're a Dell system!
-    if $::manufacturer =~ /^Dell/ {
-      include ::dsu::repo
-      include ::dsu::install
+    if $::manufacturer {
+      if $::manufacturer =~ /^Dell/ {
+        include ::dsu::repo
+        include ::dsu::install
 
-      if $srvadmin {
-        include ::dsu::srvadmin
+        if $srvadmin {
+          include ::dsu::srvadmin
+        }
       }
     }
 
