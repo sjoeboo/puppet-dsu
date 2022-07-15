@@ -1,9 +1,19 @@
 class dsu::srvadmin::install (
   $srvadmin_package = $::dsu::srvadmin_package,
   $srvadmin_version = $::dsu::srvadmin_version,
+  $srvadmin_packages = $::dsu::srvadmin_packages,
   ) {
-    package{$srvadmin_package:
-      ensure  => $srvadmin_version,
-      require => Class['::dsu::repo'],
+
+    if $::srvadmin_packages != undef {
+      include ::dsu::repo
+      #Install select dell packages from packages Array
+      $packages=hiera_array('srvadmin_packages', Data, hash, {})
+      ensure_packages ($packages, {ensure => present})
+    }
+    else {
+      package{$srvadmin_package:
+        ensure  => $srvadmin_version,
+        require => Class['::dsu::repo'],
+      }
     }
 }
