@@ -10,7 +10,7 @@ class dsu::srvadmin::install (
       $packages=hiera_array('srvadmin_packages', Data, hash, {})
       ensure_packages ($packages, {ensure => present})
     }
-    else {
+    elif $::srvadmin_package != undef {
       package{$srvadmin_package:
         ensure  => $srvadmin_version,
         require => Class['::dsu::repo'],
