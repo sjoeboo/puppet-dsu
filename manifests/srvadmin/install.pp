@@ -5,12 +5,11 @@ class dsu::srvadmin::install (
   ) {
     notify{"start installing srvadmin packages":}
     if $srvadmin_packages != undef {
-    notify{"srvadmin_packages: will install multiple packages: ${srvadmin_packages}":}
+    notify{"srvadmin_packages: will install multiple packages":}
       include ::dsu::repo
       #Install select dell packages from packages Array
-      $packages=lookup('srvadmin_packages', Data, hash, {})
-      ensure_packages ($packages, {ensure => present})
-      notify{"srvadmin_packages: installed multiple packages: ${packages}":}
+      ensure_packages ($srvadmin_packages}, {ensure => present})
+      notify{"srvadmin_packages: installed multiple packages: ${srvadmin_packages}":}
     }
     elsif $srvadmin_package != undef {
       notify{"srvadmin_package: install single meta package":}
