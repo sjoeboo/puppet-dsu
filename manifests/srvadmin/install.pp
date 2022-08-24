@@ -8,7 +8,7 @@ class dsu::srvadmin::install (
     notify{"srvadmin_packages: will install multiple packages":}
       include ::dsu::repo
       #Install select dell packages from packages Array
-      ensure_packages ($srvadmin_packages}, {ensure => present})
+      ensure_packages ($srvadmin_packages, {ensure => present})
       notify{"srvadmin_packages: installed multiple packages: ${srvadmin_packages}":}
     }
     elsif $srvadmin_package != undef {
