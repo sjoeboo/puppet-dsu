@@ -5,7 +5,7 @@ class dsu::srvadmin::install (
   $srvadmin_version = $::dsu::srvadmin_version,
   $srvadmin_packages = $::dsu::srvadmin_packages,
   ) {
-    notify{"start installing srvadmin packages, limit: ${srvadmin_install_limited}, all: ${srvadmin_install_all}": :}
+    notify{"start installing srvadmin packages, limit: ${srvadmin_install_limited}, all: ${srvadmin_install_all}":}
     if $srvadmin_install_limited != undef {
     notify{"srvadmin_packages: will install multiple packages":}
       include ::dsu::repo
