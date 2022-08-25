@@ -5,9 +5,10 @@ class dsu::srvadmin::install (
   $srvadmin_packages = $::dsu::srvadmin_packages,
   $srvadmin_version = $::dsu::srvadmin_version,
   ) {
-    notify{"start installing srvadmin packages, limit: ${srvadmin_install_limited}, all: ${srvadmin_install_all}":}
+    notify{"start installing srvadmin packages":}
+    notify{"Limit selection boolean: ${srvadmin_install_limited}, all packages boolean: ${srvadmin_install_all}, single package list: ${$srvadmin_package}":}
     if $srvadmin_install_limited == true {
-    notify{"srvadmin_packages: will install multiple packages":}
+      notify{"srvadmin_packages: will install multiple packages":}
       include ::dsu::repo
       #Install select dell packages from packages Array
       ensure_packages ($srvadmin_packages, {ensure => present})
