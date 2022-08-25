@@ -4,7 +4,7 @@ class dsu::srvadmin::install (
   $srvadmin_package = $::dsu::srvadmin_package,
   $srvadmin_packages = $::dsu::srvadmin_packages,
   $srvadmin_version = $::dsu::srvadmin_version,
-  $srvadmin_services = $::dsu::$srvadmin_services,
+  $srvadmin_services = $::dsu::srvadmin_services,
   ) {
     notify{"start installing srvadmin packages, services: ${srvadmin_services}":}
     notify{"Limit selection boolean: ${srvadmin_install_limited}, all packages boolean: ${srvadmin_install_all}, single package list: ${$srvadmin_package}":}
