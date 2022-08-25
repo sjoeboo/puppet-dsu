@@ -21,5 +21,5 @@ class dsu::params {
   # Install srvadmin-all, which includes vunerable java packages:
   $srvadmin_install_all = false
   # Install everything else, except the java related packages
-  $srvadmin_install_limited = true
+  $srvadmin_install_limited = false
 }
