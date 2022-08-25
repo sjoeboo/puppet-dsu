@@ -1,6 +1,6 @@
 class dsu::srvadmin::install (
-  $srvadmin_install_all = undef,
-  $srvadmin_install_limited = undef,
+  $srvadmin_install_all = $::dsu::srvadmin_install_all,
+  $srvadmin_install_limited = $::dsu::srvadmin_install_limited,
   $srvadmin_package = $::dsu::srvadmin_package,
   $srvadmin_version = $::dsu::srvadmin_version,
   $srvadmin_packages = $::dsu::srvadmin_packages,
