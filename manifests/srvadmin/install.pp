@@ -7,7 +7,7 @@ class dsu::srvadmin::install (
   $srvadmin_services = $::dsu::srvadmin_services,
   ) {
     notify{"start installing srvadmin packages, services: ${srvadmin_services}":}
-    notify{"Limit selection boolean: ${srvadmin_install_limited}, all packages boolean: ${srvadmin_install_all}, single package list: ${$srvadmin_package}":}
+    notify{"Limit selection boolean: ${srvadmin_install_limited}:${::dsu::srvadmin_install_limited}, all packages boolean: ${srvadmin_install_all}, single package list: ${$srvadmin_package}":}
     if $srvadmin_install_limited == true {
       notify{"srvadmin_packages: will install multiple packages":}
       include ::dsu::repo
