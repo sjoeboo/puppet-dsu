@@ -1,7 +1,8 @@
 class dsu::srvadmin::install (
   $srvadmin_install_all = $::dsu::srvadmin_install_all,
   $srvadmin_package = $::dsu::srvadmin_package,
-  $srvadmin_no_java_packages = $::dsu::srvadmin_no_java_packages,
+  $srvadmin_package_java = $::dsu::srvadmin_package_java,
+  $srvadmin_packages_no_java = $::dsu::srvadmin_packages_no_java,
   $srvadmin_version = $::dsu::srvadmin_version,
   $srvadmin_services = $::dsu::srvadmin_services,
   $srvadmin_java = 'srvadmin-jre',
@@ -20,9 +21,9 @@ class dsu::srvadmin::install (
       notify{"srvadmin_packages: will install multiple packages":}
       include ::dsu::repo
       #Install select dell packages from packages Array
-      ensure_packages ($srvadmin_packages, {ensure => present})
+      ensure_packages ($srvadmin_packages_no_java, {ensure => present})
       notify{"srvadmin_packages: installed multiple packages: ${srvadmin_packages}":}
       # If installed this will uninstall srvadmin-jre, -tomcat, -wenbserver, -all
-      ensure_packages ($srvadmin_java, {ensure => absent})
+      ensure_packages ($srvadmin_package_java, {ensure => absent})
     }
 }

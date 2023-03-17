@@ -7,7 +7,8 @@ class dsu::params {
   $package_version = 'latest'
   $srvadmin = true
   $srvadmin_package = 'srvadmin-all'
-  $srvadmin_no_java_packages = ['srvadmin-argtable2', 'srvadmin-base', 'srvadmin-deng', 'srvadmin-deng-snmp', 'srvadmin-hapi',
+  $srvadmin_package_java = 'srvadmin-jre'
+  $srvadmin_packages_no_java = ['srvadmin-argtable2', 'srvadmin-base', 'srvadmin-deng', 'srvadmin-deng-snmp', 'srvadmin-hapi',
     'srvadmin-idrac', 'srvadmin-idracadm7', 'srvadmin-isvc', 'srvadmin-isvc-snmp', 'srvadmin-itunnelprovider', 'srvadmin-marvellib',
     'srvadmin-nvme', 'srvadmin-omacore', 'srvadmin-omacs', 'srvadmin-omaksmig', 'srvadmin-omcommon', 'srvadmin-omilcore', 'srvadmin-ominst',
     'srvadmin-oslog', 'srvadmin-realssd', 'srvadmin-server-cli', 'srvadmin-server-snmp', 'srvadmin-smcommon', 'srvadmin-smweb',
@@ -21,5 +22,5 @@ class dsu::params {
   # Install srvadmin-all, which includes vunerable java packages.
   # you don't want to set this to true unless you are sure that Dell
   # updated the related java package
-  $srvadmin_install_all = false,
+  $srvadmin_install_all = false
 }
