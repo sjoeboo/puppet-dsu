@@ -12,8 +12,7 @@ class dsu (
   $srvadmin_services        = $::dsu::params::srvadmin_services,
   $srvadmin_services_enable = $::dsu::params::srvadmin_services_enable,
   $srvadmin_services_ensure = $::dsu::params::srvadmin_services_ensure,
-  $srvadmin_install_all = $::dsu::params::srvadmin_install_all,
-  $srvadmin_install_limited = $::dsu::params::srvadmin_install_limited,
+  $srvadmin_install_all     = $::dsu::params::srvadmin_install_all,
   ) inherits dsu::params {
     #Of course, only DO anything if we're a Dell system!
     if $::manufacturer {
