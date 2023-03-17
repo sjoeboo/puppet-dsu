@@ -1,7 +1,7 @@
 class dsu::srvadmin::install (
   $srvadmin_install_all = $::dsu::srvadmin_install_all,
   $srvadmin_package = $::dsu::srvadmin_package,
-  $srvadmin_package_java = $::dsu::srvadmin_package_java,
+  $srvadmin_packages_java = $::dsu::srvadmin_packages_java,
   $srvadmin_packages_no_java = $::dsu::srvadmin_packages_no_java,
   $srvadmin_version = $::dsu::srvadmin_version,
   $srvadmin_services = $::dsu::srvadmin_services,
@@ -24,6 +24,6 @@ class dsu::srvadmin::install (
       ensure_packages ($srvadmin_packages_no_java, {ensure => present})
       notify{"srvadmin_packages: installed multiple packages: ${srvadmin_packages}":}
       # If installed this will uninstall srvadmin-jre, -tomcat, -wenbserver, -all
-      ensure_packages ($srvadmin_package_java, {ensure => absent})
+      ensure_packages ($srvadmin_packages_java, {ensure => absent})
     }
 }
