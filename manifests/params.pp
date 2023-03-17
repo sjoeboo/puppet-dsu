@@ -7,7 +7,7 @@ class dsu::params {
   $package_version = 'latest'
   $srvadmin = true
   $srvadmin_package = 'srvadmin-all'
-  $srvadmin_packages_java = ['srvadmin-jre', 'srvadmin-all', 'srvadmin-tomcat', 'srvadmin-webserver']
+  $srvadmin_packages_java = ['srvadmin-webserver', 'srvadmin-tomcat', 'srvadmin-jre', 'srvadmin-all',]
   $srvadmin_packages_no_java = ['srvadmin-argtable2', 'srvadmin-base', 'srvadmin-deng', 'srvadmin-deng-snmp', 'srvadmin-hapi',
     'srvadmin-idrac', 'srvadmin-idracadm7', 'srvadmin-isvc', 'srvadmin-isvc-snmp', 'srvadmin-itunnelprovider', 'srvadmin-marvellib',
     'srvadmin-nvme', 'srvadmin-omacore', 'srvadmin-omacs', 'srvadmin-omaksmig', 'srvadmin-omcommon', 'srvadmin-omilcore', 'srvadmin-ominst',
